@@ -1,8 +1,8 @@
-//UNTUK PENGGUNA WHATSAPP BUSSINES
-//GUNAKAN MENU KE 2 YAH
-//MOHON MAAF SEBELUMNYA
+//CREATED BY HYZER
+//HELPED BY YUTA
 let { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys-md')
 wm = global.wm
+let { MessageType } = require('@adiwajshing/baileys')
 let levelling = require('../lib/levelling')
 let fs = require('fs')
 const util = require('util')
@@ -12,6 +12,7 @@ let { createHash} = require('crypto')
 let fetch = require('node-fetch')
 let { perfomance } = require('perf_hooks')
 let moment = require('moment-timezone')
+const groups = chats.filter(v => v.jid.endsWith('g.us'))
 const defaultMenu = {
   before:`
 ┏━━「 ${wm} 」━⬣
@@ -211,13 +212,13 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
     }
   })
     if (teks == '404') {
-      const template = generateWAMessageFromContent(m.key.remoteJid, proto.Message.fromObject({
+      return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         listMessage: {
             title: `*${ucapan()}, ${name}*`,
             description: `┏━━〔 *Ｍａｒｉｎ－ＭＤ* 〕━⬣\n┃⬡ 𝘼𝙠𝙩𝙞𝙛 𝙎𝙚𝙡𝙖𝙢𝙖 _*${uptime}*_\n┃⬡ _*${Object.keys(global.db.data.users).length}*_ 𝙋𝙚𝙣𝙜𝙜𝙪𝙣𝙖\n┃⬡ 𝙈𝙤𝙙𝙚 : *${global.opts['self'] ? 'Self' : 'publik'}*\n┗━━━━━━━━⬣`,
             buttonText: 'LIST MENU',
             listType: 1,
-            footerText: "Join Group Bot\nhttps://chat.whatsapp.com/BkxbwERGX9x0mAhAsiDWxP\n>‿‿<",
+            footerText: "Join Group Bot\nhttps://chat.whatsapp.com/Jzd9DEVB5nODtNBk1VCNrV\n>‿‿<",
             mtype: 'listMessage',
             sections: [
               {
@@ -335,7 +336,7 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
             ], "contextInfo": {
                "stanzaId": m.key.id,
                "participant": "0@s.whatsapp.net",
-               "remoteJid": "6283136505591-1614953337@g.us",
+               "remoteJid": "status@broadcast",
                "quotedMessage": m.message
             }
     }}), { userJid: m.participant || m.key.remoteJid, quoted: m });
