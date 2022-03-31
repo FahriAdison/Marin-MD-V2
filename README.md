@@ -194,9 +194,11 @@ Jika berhasil, akan memberikanmu pesan seperti: `SUCCESS: specified value was sa
  
 ### Github Stats 
 
-![github card](https://github-readme-stats.vercel.app/api?username=FahriAdison&show_icons=true&theme=radical)
+![Ra Github stat](https://github-readme-stats.vercel.app/api?username=FahriAdison&theme=midnight-purple&show_icons=true) 
 
-![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=FahriAdison&theme=monokai)
+![Ra Github troppy](https://github-profile-trophy.vercel.app/?username=BFahriAdison&theme=monokai)
+
+![Ra Github languages](https://github-readme-stats.vercel.app/api/top-langs/?username=FahriAdison&theme=tokyonight)
 
 ### Repo Stats 
 
