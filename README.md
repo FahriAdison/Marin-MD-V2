@@ -160,7 +160,7 @@ pkg install imagemagick
 pkg install yarn
 git clone https://github.com/FahriAdison/Marin-MD-V2
 cd Marin-MD-V2
-yarn
+ekstrak lalu pasang module nya dan taruh di folder Marin-MD-V2
 mc
 ganti session
 node .
