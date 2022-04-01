@@ -1,6 +1,7 @@
 //UNTUK PENGGUNA WHATSAPP BUSSINES
 //GUNAKAN MENU KE 2 YAH
 //MOHON MAAF SEBELUMNYA
+//YUTA×HYZERR
 let { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys-md')
 wm = global.wm
 let levelling = require('../lib/levelling')
@@ -14,34 +15,47 @@ let { perfomance } = require('perf_hooks')
 let moment = require('moment-timezone')
 const defaultMenu = {
   before:`
-┏━━「 ${wm} 」━⬣
-┃⬡📊 *Version*: %version
-┃⬡🗃️ *Lib*: Baileys-MD
-┃⬡🧪 *Mode:* ${global.opts['self'] ? 'Self' : 'publik'}
-┃⬡⏰ *Uptime:* %uptime
-┗⬣
-┏━━⬣ 𝙄𝙉𝙁𝙊 𝙐𝙎𝙀𝙍 ━⬣
-┃⬡ 📇 *Name*:  %name 
-┃⬡ 🆔 *Status*: ---
-┃⬡ 🎫 *Limit*: %limit
-┃⬡ 💹 *Money*: %money
-┃⬡ ✨ *Exp*: %totalexp
-┃⬡ 📊 *Level*: %level
-┃⬡ 📍 *Role*: %role
-┃⬡ 💲Premium : ${global.prem ? '✅' : '❌'}
-┗⬣
-┏━━⬣ 𝙄𝙉𝙁𝙊 𝙎𝙏𝘼𝙏𝙐𝙎 ━⬣
-┃
-┃⬡ *${Object.keys(global.db.data.users).length}* Pengguna
-┃⬡ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
-┃⬡ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
-┃
-┗⬣
-  %readmore`.trimStart(), 
-  header: '┏━━「 %category 」━⬣',
-  body: '┃ ◇ %cmd %islimit %isPremium',
-  footer: '┗━━━━━━⬣\n',
-  after: ``,
+  ───────━┅ *D A S H B O A R D* ┅━───────
+  
+  「 *U S E R* 」
+☂︎ *Name:* %name
+☂︎ *Status:* user ${wm}
+☂︎ *Limit:* %limit
+☂︎ *Role:* %role
+☂︎ *Level:* %level 
+☂︎ *Xp:* %exp / %maxexp
+☂︎ *Total Xp:* %totalexp
+☂︎ *Premium:* ${global.prem ? '✅' : '❌'}
+
+「 *T O D A Y* 」
+☂︎ *Days:* %week %weton
+☂︎ *Date:* %date
+☂︎ *Islamic Date:* %dateIslamic
+☂︎ *Time:* %time
+
+「 *I N F O* 」
+☂︎ *Bot Name:* ${wm}
+☂︎ *Lib*: Baileys-MD
+☂︎ *${Object.keys(global.db.data.users).length}* *Pengguna*
+☂︎ *Prefix:* [. / #]
+☂︎ *Uptime:* %uptime
+☂︎ *Mode:* ${global.opts['self'] ? 'Self' : 'publik'}
+☂︎ *Database:* %rtotalreg dari %totalreg
+☂︎ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* *Chat Terbanned*
+☂︎ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
+
+⃝▣「 *I N F O  C M D* 」
+│ *Ⓟ* = Premium
+│ *Ⓛ* = Limit
+▣──···
+%readmore`.trimStart(), 
+ header: '⃝▣             「 *%category* 」',
+ body: '│☂︎ %cmd %isPremium %islimit',
+ footer: '▣──···\n',
+  after: `
+*%npmname@^%version*
+${'```%npmdesc```'}
+`,
 }
 
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
@@ -395,7 +409,7 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     let pp = fs.readFileSync('./src/welcome.jpg')
-    await conn.sendHButtonLoc(m.chat,pp, text.trim(), '🅛=limit 🅟=premium', "📍Instagram", instagram, `Kembali Ke List Menu`, `.menu`, m)
+    await conn.sendHButtonLoc(m.chat,pp, text.trim(), 'Ⓛ=limit Ⓟ=premium', "📍Instagram", instagram, `Kembali Ke List Menu`, `.menu`, m)
 } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
