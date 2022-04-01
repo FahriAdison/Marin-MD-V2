@@ -1,3 +1,5 @@
+//CREATED BY HYZER OFFICAL
+//HELPED BY YUTA
 const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys-md')
 wm = global.wm
 let fs = require('fs')
@@ -30,33 +32,43 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-┏━━「 ${wm} 」━⬣
-┃⬡📊 *Version*: %version
-┃⬡🗃️ *Lib*: Baileys-MD
-┃⬡🧪 *Mode:* ${global.opts['self'] ? 'Self' : 'publik'}
-┃⬡⏰ *Uptime:* %uptime
-┗⬣
-┏━━⬣ 𝙄𝙉𝙁𝙊 𝙐𝙎𝙀𝙍 ━⬣
-┃⬡ 📇 *Name*:  %name 
-┃⬡ 🆔 *Status*: ---
-┃⬡ 🎫 *Limit*: %limit
-┃⬡ 💹 *Money*: %money
-┃⬡ ✨ *Exp*: %totalexp
-┃⬡ 📊 *Level*: %level
-┃⬡ 📍 *Role*: %role
-┃⬡ 💲Premium : ${global.prem ? '✅' : '❌'}
-┗⬣
-┏━━⬣ 𝙄𝙉𝙁𝙊 𝙎𝙏𝘼𝙏𝙐𝙎 ━⬣
-┃
-┃⬡ *${Object.keys(global.db.data.users).length}* Pengguna
-┃⬡ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
-┃⬡ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
-┃
-┗⬣
+  ───────━┅ *D A S H B O A R D* ┅━───────
+  
+    「 *U S E R* 」
+☂︎ *Name:* %name
+☂︎ *Status:* user ${wm}
+☂︎ *Limit:* %limit
+☂︎ *Role:* %role
+☂︎ *Level:* %level 
+☂︎ *Xp:* %exp / %maxexp
+☂︎ *Total Xp:* %totalexp
+☂︎ *Premium:* ${global.prem ? '✅' : '❌'}
+
+  「 *T O D A Y* 」
+☂︎ *Days:* %week %weton
+☂︎ *Date:* %date
+☂︎ *Islamic Date:* %dateIslamic
+☂︎ *Time:* %time
+
+  「 *I N F O* 」
+☂︎ *Bot Name:* ${wm}
+☂︎ *Lib*: Baileys-MD
+☂︎ *${Object.keys(global.db.data.users).length}* *Pengguna*
+☂︎ *Prefix:* [. / #]
+☂︎ *Uptime:* %uptime
+☂︎ *Mode:* ${global.opts['self'] ? 'Self' : 'publik'}
+☂︎ *Database:* %rtotalreg dari %totalreg
+☂︎ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* *Chat Terbanned*
+☂︎ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
+
+⃝▣「 *I N F O  C M D* 」
+│ *Ⓟ* = Premium
+│ *Ⓛ* = Limit
+▣──···
   %readmore`.trimStart(), 
-    header: '┏━━「 %category 」━⬣',
-    body: '┃ ◇ %cmd %islimit %isPremium',
-    footer: '┗━━━━━━⬣\n',
+   header: '⃝▣             「 *%category* 」',
+   body: '│☂︎ %cmd %isPremium %islimit',
+   footer: '▣──···\n',
     after: `
 *%npmname@^%version*
 ${'```%npmdesc```'}
@@ -135,8 +147,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '🅛' : '')
-                .replace(/%isPremium/g, menu.premium ? '🅟' : '')
+                .replace(/%islimit/g, menu.limit ? 'Ⓛ' : '')
+                .replace(/%isPremium/g, menu.premium ? 'Ⓟ' : '')
                 .trim()
             }).join('\n')
           }),
@@ -171,15 +183,15 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
            hydratedFooterText: `Ⓛ=limit Ⓟ=premium`,
            hydratedButtons: [{
              urlButton: {
-               displayText: '📍Instagram',
-               url: instagram
+               displayText: 'MY WEB',
+               url: 'https://youtube.com/channel/UC3zScvuQfMxqiTC5x_JUEng'
              }
 
            },
              {
              urlButton: {
-               displayText: 'Owner',
-               PhoneNumber: 'https://wa.me/17608914335'
+               displayText: 'MY GROUP',
+               url: 'https://chat.whatsapp.com/GngfXIF8XmgHf9Gm7MQFps'
              }
 
            },
