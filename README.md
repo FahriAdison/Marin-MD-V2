@@ -1,3 +1,6 @@
+TUTORIAL FIX MENU
+[KLIK](https://www.youtube.com/watch?v=Rz8d06NfZI4&t=332s)
+
 <p align="center">
   <a href="https://github.com/FahriAdison"><img src="http://readme-typing-svg.herokuapp.com?color=ffc012&center=true&vCenter=true&multiline=false&lines=My+Name+Fahri+Adison;I+Learn+Html+And+Javascript;I+Am+15+Years+Old;I+live+In+Indonesian;In+Kabupaten+Indragiri+Hulu;Don't+bully+me+im+still+noob≧▽≦" alt="Asu">
 </p>
