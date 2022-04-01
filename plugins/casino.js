@@ -1,5 +1,5 @@
 let buatall = 1
-let { MessageType } = require('@adiwajshing/baileys')
+let { MessageType } = require('@adiwajshing/baileys-md')
 let handler = async (m, { conn, args, usedPrefix, DevMode }) => {
     conn.casino = conn.casino ? conn.casino : {}
     if (m.chat in conn.casino) return m.reply ('Masih ada yang melakukan casino disini, tunggu sampai selesai!!')
