@@ -15,7 +15,7 @@ let { perfomance } = require('perf_hooks')
 let moment = require('moment-timezone')
 const defaultMenu = {
   before:`
-  ───────━┅ *D A S H B O A R D* ┅━───────
+  ──━┅ *D A S H B O A R D* ┅━──
   
   「 *U S E R* 」
 ☂︎ *Name:* %name
@@ -49,7 +49,7 @@ const defaultMenu = {
 │ *Ⓛ* = Limit
 ▣──···
 %readmore`.trimStart(), 
- header: '⃝▣             「 *%category* 」',
+ header: '⃝▣             「 %category 」',
  body: '│☂︎ %cmd %isPremium %islimit',
  footer: '▣──···\n',
   after: `
@@ -59,6 +59,7 @@ ${'```%npmdesc```'}
 }
 
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
+
   let tags
   let teks = `${args[0]}`.toLowerCase()
   let arrayMenu = ['all', 'absen', 'rpg', 'anime', 'nsfw', 'downloader', 'game', 'fun', 'xp', 'github', 'group', 'image', 'quotes', 'admin', 'info', 'internet', 'islam', 'kerang', 'maker', 'owner', 'suara', 'premium', 'quotes', 'info', 'stalk', 'shortlink', 'sticker', 'tools']
@@ -91,6 +92,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   'shortlink': '*SHORT LINK',
   'tools': '*MENU TOOLS*',
   'vote': '*MENU VOTING*',
+  'audio': '*MENU AUDIO*',
   }
   if (teks == 'absen') tags = {
     'absen': 'MENU ABSEN',
@@ -228,10 +230,11 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
       const template = generateWAMessageFromContent(m.key.remoteJid, proto.Message.fromObject({
         listMessage: {
             title: `*${ucapan()}, ${name}*`,
-            description: `┏━━〔 *Ｍａｒｉｎ－ＭＤ* 〕━⬣\n┃⬡ 𝘼𝙠𝙩𝙞𝙛 𝙎𝙚𝙡𝙖𝙢𝙖 _*${uptime}*_\n┃⬡ _*${Object.keys(global.db.data.users).length}*_ 𝙋𝙚𝙣𝙜𝙜𝙪𝙣𝙖\n┃⬡ 𝙈𝙤𝙙𝙚 : *${global.opts['self'] ? 'Self' : 'publik'}*\n┗━━━━━━━━⬣`,
+            description: `┌────〔 *${wm}* 〕───⬣\n│⬡ Aktif selama ${uptime}\n│⬡ _*${Object.keys(global.db.data.users).length}*_ Pengguna\n│⬡ Mode : *${global.opts['self'] ? 'Self' : 'publik'}*\n│⬡ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned\n│⬡ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned\n╰───⬣\n┌───⬣\n│⬡ My Github : https://github.com/FahriAdison\n│⬡ My Instagram : senpai_chan_gemoy\n│⬡ My Group : 
+│https://chat.whatsapp.com/BkxbwERGX9x0mAhAsiDWxP\n│⬡ *スパムしないでください*╰──────────⬣`,
             buttonText: 'LIST MENU',
             listType: 1,
-            footerText: "Join Group Bot\nhttps://chat.whatsapp.com/BkxbwERGX9x0mAhAsiDWxP\n>‿‿<",
+            footerText: "Created By Papah-Chan\n>‿‿<",
             mtype: 'listMessage',
             sections: [
               {
