@@ -59,7 +59,7 @@ ${'```%npmdesc```'}
 }
 
 let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
-
+  let bzz = fs.readFileSync('./audio/sound37.mp3')
   let tags
   let teks = `${args[0]}`.toLowerCase()
   let arrayMenu = ['all', 'absen', 'rpg', 'anime', 'nsfw', 'downloader', 'game', 'fun', 'xp', 'github', 'group', 'image', 'quotes', 'admin', 'info', 'internet', 'islam', 'kerang', 'maker', 'owner', 'suara', 'premium', 'quotes', 'info', 'stalk', 'shortlink', 'sticker', 'tools']
@@ -413,6 +413,7 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     let pp = fs.readFileSync('./src/welcome.jpg')
     await conn.sendHButtonLoc(m.chat,pp, text.trim(), 'Ⓛ=limit Ⓟ=premium', "📍Instagram", instagram, `Kembali Ke List Menu`, `.menu`, m)
+    await conn.sendFile(m.chat, bzz, 'bzz.opus', null, m, true)
 } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
