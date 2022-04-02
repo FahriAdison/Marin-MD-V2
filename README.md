@@ -1,5 +1,6 @@
 TUTORIAL FIX MENU
 [KLIK](https://www.youtube.com/watch?v=Rz8d06NfZI4&t=332s)
+(Sebelum Lihat Tutor Nya,Tes Dulu Menu Nya Bisa Apa Kagak)
 
 Download Modules
 [Here](https://drive.google.com/file/d/1Rr4xDLfA1OBpJ86PCrUFlNTuJX3KSCHN/view?usp=sharing)
