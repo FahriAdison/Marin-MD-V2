@@ -1,5 +1,6 @@
 //CREATED BY HYZER OFFICAL
 //HELPED BY YUTA
+// PENAMBAHAN AUDIO BY YUTA
 const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys-md')
 wm = global.wm
 let fs = require('fs')
@@ -80,6 +81,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let who
     if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
     else who = m.sender 
+    let bzz = fs.readFileSync('./audio/sound8.mp3')
     let user = global.db.data.users[who]
     let { exp, limit, level, money, role } = global.db.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
@@ -174,6 +176,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+    await conn.sendFile(m.chat, bzz, 'bzz.opus', null, m, true)
      const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
      templateMessage: {
          hydratedTemplate: {
