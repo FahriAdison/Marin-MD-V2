@@ -13,7 +13,7 @@ let esce = `
 Hai Sayangku ${ye} Lagi Nyari Sc Botku Ya:v
 
 Nih Link Sc Nya Dibawah :
-https://github.com/FahriAdison/Marin-MD
+https://github.com/FahriAdison/Marin-MD-V2
 
 _*Jangan Lupa Di Fork Dan Kasih Star :3*_
 _*Maaf Kalau Jelek Ya Banh_`
