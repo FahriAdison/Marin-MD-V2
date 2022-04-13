@@ -1,3 +1,5 @@
+let fs = require('fs')
+
 let moment = require('moment-timezone')
 let d = new Date(new Date + 3600000)
 let locale = 'id'
@@ -19,7 +21,7 @@ function pickRandom(list) {
 }
 global.owner = ['17608914335'] // Put your number here
 global.mods = [] // Want some help?
-global.prems = [] // Premium user has unlimited limit
+global.prems = JSON.parse(fs.readFileSync('./src/premium.json'))
 global.APIs = { // API Prefix
   // name: 'https://website'
   amel: 'https://melcanz.com',
@@ -114,7 +116,6 @@ global.rpg = {
   }
 }
 
-let fs = require('fs')
 let chalk = require('chalk')
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
